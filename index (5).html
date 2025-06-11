@@ -1,0 +1,675 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>دنیای فارسی - شعر و ادبیات پارسی</title>
+    <meta name="description" content="زیبایی شعر پارسی را از طریق مجموعه‌ای جامع از آثار حافظ، مولانا، سعدی، فردوسی و دیگر استادان شعر کشف کنید. متن اصلی فارسی با ترجمه و تلاوت صوتی.">
+    <meta name="keywords" content="شعر پارسی, اشعار فارسی, حافظ, مولانا, سعدی, فردوسی, ادبیات پارسی, فرهنگ ایرانی">
+    <!-- Open Graph meta tags -->
+    <meta property="og:title" content="دنیای فارسی - شعر و ادبیات پارسی">
+    <meta property="og:description" content="جامع‌ترین منبع شعر پارسی با متون اصلی، ترجمه‌ها و تلاوت‌های صوتی.">
+    <meta property="og:type" content="website">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Fonts for better Persian text rendering -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Vazirmatn:wght@300;400;500;600;700;800&family=Amiri:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+    <style>
+        
+        body {
+            font-family: 'Vazirmatn', 'Inter', sans-serif;
+            direction: rtl;
+            background-color: #f8f9fa;
+        }
+        
+        .persian-text {
+            font-family: 'Amiri', 'Vazirmatn', serif;
+            line-height: 2.5;
+            direction: rtl;
+        }
+
+        .english-text {
+            font-family: 'Inter', sans-serif;
+            direction: ltr;
+        }
+        
+        .hero-pattern {
+            background-image: url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxMDAlIiBoZWlnaHQ9IjEwMCUiPjxkZWZzPjxwYXR0ZXJuIGlkPSJwYXR0ZXJuIiB3aWR0aD0iNDAiIGhlaWdodD0iNDAiIHBhdHRlcm5Vbml0cz0idXNlclNwYWNlT25Vc2UiIHBhdHRlcm5UcmFuc2Zvcm09InJvdGF0ZSg0NSkiPjxyZWN0IHdpZHRoPSIyMCIgaGVpZ2h0PSIyMCIgZmlsbD0icmdiYSgyNTUsMjU1LDI1NSwwLjA1KSIvPjwvcGF0dGVybj48L2RlZnM+PHJlY3QgeD0iMCIgeT0iMCIgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgZmlsbD0idXJsKCNwYXR0ZXJuKSIvPjwvc3ZnPg==');
+        }
+        
+        .poem-card {
+            transition: all 0.3s ease;
+            background: linear-gradient(135deg, rgba(255,255,255,0.1) 0%, rgba(255,255,255,0.05) 100%);
+        }
+        
+        .poem-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+        }
+        
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            background: #8b5a2b;
+            left: -10px;
+            top: 50%;
+            transform: translateY(-50%);
+        }
+        
+        @media (max-width: 768px) {
+            .timeline-item::before {
+                left: auto;
+                right: -10px;
+            }
+        }
+        
+        .feature-icon {
+            width: 80px;
+            height: 80px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            background: rgba(139, 90, 43, 0.1);
+            margin-bottom: 1rem;
+        }
+        
+        .nav-link {
+            position: relative;
+        }
+        
+        .nav-link {
+            position: relative;
+            transition: all 0.3s ease;
+        }
+        
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: -2px;
+            right: 0;
+            background-color: #8b5a2b;
+            transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
+        
+        .nav-link:hover {
+            transform: translateY(-2px);
+        }
+        
+        .nav-link:hover::after {
+            width: 100%;
+        }
+    </style>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    animation: {
+                        'click': 'click 0.3s ease-out',
+                    },
+                    keyframes: {
+                        click: {
+                            '0%, 100%': { transform: 'scale(1)' },
+                            '50%': { transform: 'scale(0.95)' },
+                        }
+                    }
+                },
+                extend: {
+                    colors: {
+                        persian: {
+                            blue: '#1c39bb',
+                            green: '#00a693',
+                            red: '#cc3333',
+                            orange: '#d99058',
+                            brown: '#8b5a2b',
+                            cream: '#f5f3e7'
+                        }
+                    },
+                    fontFamily: {
+                        nastaliq: ['Noto Nastaliq Urdu', 'serif'],
+                    }
+                }
+            }
+        }
+        
+        document.addEventListener('DOMContentLoaded', function() {
+            // Mobile menu toggle
+            const menuBtn = document.getElementById('menu-btn');
+            const mobileMenu = document.getElementById('mobile-menu');
+            
+            menuBtn.addEventListener('click', function() {
+                mobileMenu.classList.toggle('hidden');
+            });
+            
+            // Poem card interaction
+            const poemCards = document.querySelectorAll('.poem-card');
+            poemCards.forEach(card => {
+                card.addEventListener('mouseenter', function() {
+                    this.querySelector('.poem-content').classList.remove('opacity-0');
+                });
+                card.addEventListener('mouseleave', function() {
+                    this.querySelector('.poem-content').classList.add('opacity-0');
+                });
+            });
+            
+            // Theme toggle
+            const themeToggle = document.getElementById('theme-toggle');
+            themeToggle.addEventListener('click', function() {
+                document.documentElement.classList.toggle('dark');
+                localStorage.setItem('darkMode', document.documentElement.classList.contains('dark'));
+            });
+            
+            // Add click animation to all clickable elements
+            document.querySelectorAll('a, button').forEach(element => {
+                element.addEventListener('click', function() {
+                    this.classList.add('animate-click');
+                    setTimeout(() => {
+                        this.classList.remove('animate-click');
+                    }, 300);
+                });
+            });
+            
+            // Check for saved theme preference
+            if (localStorage.getItem('darkMode') === 'true') {
+                document.documentElement.classList.add('dark');
+            }
+        });
+    </script>
+</head>
+<body class="bg-persian-cream text-gray-800 dark:bg-blue-900 dark:text-gray-200">
+    <!-- Header/Navigation -->
+    <header class="bg-white dark:bg-gray-800 shadow-md sticky top-0 z-50">
+        <div class="container mx-auto px-4 py-4">
+            <div class="flex justify-between items-center">
+                <div class="flex items-center">
+                    <a href="#" class="flex items-center">
+                        <div class="w-12 h-12 rounded-full bg-persian-brown flex items-center justify-center mr-3">
+                            <i class="fas fa-book-open text-2xl text-white"></i>
+                        </div>
+                        <span class="text-xl font-bold text-persian-darkblue dark:text-persian-lightblue">فارسی ورلد</span>
+                    </a>
+                </div>
+                
+                <nav class="hidden md:flex space-x-6 space-x-reverse">
+                    <a href="#" class="nav-link text-gray-700 dark:text-gray-300 hover:text-persian-darkblue dark:hover:text-persian-lightblue">خانه</a>
+                    <a href="#" class="nav-link text-gray-700 dark:text-gray-300 hover:text-persian-darkblue dark:hover:text-persian-lightblue">شاعران</a>
+                    <a href="#" class="nav-link text-gray-700 dark:text-gray-300 hover:text-persian-darkblue dark:hover:text-persian-lightblue">اشعار</a>
+                    <a href="#" class="nav-link text-gray-700 dark:text-gray-300 hover:text-persian-darkblue dark:hover:text-persian-lightblue">تایم‌لاین</a>
+                    <a href="#" class="nav-link text-gray-700 dark:text-gray-300 hover:text-persian-darkblue dark:hover:text-persian-lightblue">درباره ما</a>
+                </nav>
+                
+                <div class="flex items-center space-x-4 space-x-reverse">
+                    <button id="theme-toggle" class="p-2 rounded-full hover:bg-gray-100 dark:hover:bg-gray-700">
+                        <i class="fas fa-moon dark:hidden text-persian-darkblue"></i>
+                        <i class="fas fa-sun hidden dark:block text-persian-lightblue"></i>
+                    </button>
+                    <button id="menu-btn" class="md:hidden p-2 rounded-full hover:bg-gray-100 dark:hover:bg-gray-700">
+                        <i class="fas fa-bars text-persian-brown dark:text-persian-orange"></i>
+                    </button>
+                    <a href="#" class="hidden md:block bg-persian-darkblue text-white px-4 py-2 rounded-lg hover:bg-opacity-90 dark:bg-persian-lightblue">ورود / ثبت‌نام</a>
+                </div>
+            </div>
+            
+            <!-- Mobile menu -->
+            <div id="mobile-menu" class="hidden md:hidden mt-4 pb-4">
+                <a href="#" class="block py-2 text-gray-700 dark:text-gray-300 hover:text-persian-brown dark:hover:text-persian-orange">خانه</a>
+                <a href="#" class="block py-2 text-gray-700 dark:text-gray-300 hover:text-persian-brown dark:hover:text-persian-orange">شاعران</a>
+                <a href="#" class="block py-2 text-gray-700 dark:text-gray-300 hover:text-persian-brown dark:hover:text-persian-orange">اشعار</a>
+                <a href="#" class="block py-2 text-gray-700 dark:text-gray-300 hover:text-persian-brown dark:hover:text-persian-orange">تایم‌لاین</a>
+                <a href="#" class="block py-2 text-gray-700 dark:text-gray-300 hover:text-persian-brown dark:hover:text-persian-orange">درباره ما</a>
+                <a href="#" class="block bg-persian-brown text-white px-4 py-2 rounded-lg hover:bg-opacity-90 mt-2 text-center dark:bg-persian-orange">ورود / ثبت‌نام</a>
+            </div>
+        </div>
+    </header>
+
+    <!-- MVP Hero Section -->
+    <section class="bg-gradient-to-b from-persian-cream to-white dark:from-gray-800 dark:to-gray-900 py-16">
+        <div class="container mx-auto px-4 text-center">
+            <h1 class="text-4xl md:text-5xl font-bold mb-6 text-persian-brown dark:text-persian-orange">فارسی ورلد</h1>
+            <p class="text-xl mb-8 max-w-2xl mx-auto">پلتفرم اشعار فارسی - نسخه آزمایشی (MVP)</p>
+            
+            <div class="grid md:grid-cols-3 gap-8 mt-12">
+                <div class="bg-white dark:bg-gray-800 p-6 rounded-lg shadow">
+                    <i class="fas fa-book text-4xl text-persian-brown dark:text-persian-orange mb-4"></i>
+                    <h3 class="text-xl font-bold mb-2">مجموعه اشعار</h3>
+                    <p class="text-gray-600 dark:text-gray-300">دسترسی به گزیده‌ای از برترین اشعار فارسی</p>
+                </div>
+                <div class="bg-white dark:bg-gray-800 p-6 rounded-lg shadow">
+                    <i class="fas fa-search text-4xl text-persian-brown dark:text-persian-orange mb-4"></i>
+                    <h3 class="text-xl font-bold mb-2">جستجوی هوشمند</h3>
+                    <p class="text-gray-600 dark:text-gray-300">پیدا کردن اشعار بر اساس موضوع و شاعر</p>
+                </div>
+                <div class="bg-white dark:bg-gray-800 p-6 rounded-lg shadow">
+                    <i class="fas fa-users text-4xl text-persian-brown dark:text-persian-orange mb-4"></i>
+                    <h3 class="text-xl font-bold mb-2">جامعه کاربری</h3>
+                    <p class="text-gray-600 dark:text-gray-300">ارتباط با سایر علاقه‌مندان شعر فارسی</p>
+                </div>
+            </div>
+            
+            <div class="mt-12">
+                <h2 class="text-2xl font-bold mb-6">همکاری با ما در توسعه این پروژه</h2>
+                <div class="flex flex-col sm:flex-row justify-center gap-4">
+                    <a href="#contribute" class="bg-persian-brown text-white px-8 py-3 rounded-lg font-medium hover:bg-opacity-90 transition dark:bg-persian-orange">مشارکت محتوایی</a>
+                    <a href="#develop" class="border border-persian-brown text-persian-brown px-8 py-3 rounded-lg font-medium hover:bg-persian-brown hover:text-white transition dark:border-persian-orange dark:text-persian-orange dark:hover:bg-persian-orange dark:hover:text-white">همکاری فنی</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- MVP Features -->
+    <section class="py-16 bg-white dark:bg-gray-900" id="contribute">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl font-bold mb-4">شاعران برجسته</h2>
+                <p class="text-lg text-gray-600 max-w-2xl mx-auto dark:text-gray-300">با بزرگترین شاعران تاریخ ادبیات فارسی آشنا شوید</p>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+                <!-- Poet 1 - Rumi -->
+                <div class="poem-card bg-white rounded-xl shadow-md overflow-hidden dark:bg-gray-800">
+                    <img src="https://placeholder.pics/svg/300x200/DEDEDE/555555/مولوی" alt="Rumi" class="w-full h-48 object-cover">
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold mb-2">مولانا جلال‌الدین بلخی</h3>
+                        <p class="text-gray-600 dark:text-gray-300 mb-4">شاعر و عارف بزرگ قرن ۷ هجری</p>
+                        <div class="relative h-28 overflow-hidden">
+                            <div class="poem-content opacity-0 transition-opacity duration-300 absolute inset-0 bg-white bg-opacity-90 dark:bg-gray-900 dark:bg-opacity-90 p-4 rounded">
+                                <p class="persian-text text-sm text-gray-700 dark:text-gray-200">
+                                    بیا، بیا، که هر آنچه که در جهان سوزی
+                                    نسوزی عاقبت از آتش فراق ناگزیر
+                                </p>
+                            </div>
+                            <img src="https://placeholder.pics/svg/100x100/8B5A2B/FFFFFF/م" class="w-16 h-16 rounded-full mx-auto mt-2">
+                        </div>
+                        <a href="#" class="inline-block mt-4 text-persian-brown dark:text-persian-orange hover:underline">مشاهده اشعار →</a>
+                    </div>
+                </div>
+                
+                <!-- Poet 2 - Hafez -->
+                <div class="poem-card bg-white rounded-xl shadow-md overflow-hidden dark:bg-gray-800">
+                    <img src="https://placeholder.pics/svg/300x200/DEDEDE/555555/حافظ" alt="Hafez" class="w-full h-48 object-cover">
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold mb-2">خواجه شمس‌الدین محمد حافظ</h3>
+                        <p class="text-gray-600 dark:text-gray-300 mb-4">غزلسرای بزرگ قرن ۸ هجری</p>
+                        <div class="relative h-28 overflow-hidden">
+                            <div class="poem-content opacity-0 transition-opacity duration-300 absolute inset-0 bg-white bg-opacity-90 dark:bg-gray-900 dark:bg-opacity-90 p-4 rounded">
+                                <p class="persian-text text-sm text-gray-700 dark:text-gray-200">
+                                    الا یا ایها الساقی ادر کأسا و ناولها
+                                    که عشق آسان نمود اول ولی افتاد مشکل‌ها
+                                </p>
+                            </div>
+                            <img src="https://placeholder.pics/svg/100x100/8B5A2B/FFFFFF/خ" class="w-16 h-16 rounded-full mx-auto mt-2">
+                        </div>
+                        <a href="#" class="inline-block mt-4 text-persian-brown dark:text-persian-orange hover:underline">مشاهده اشعار →</a>
+                    </div>
+                </div>
+                
+                <!-- Poet 3 - Ferdowsi -->
+                <div class="poem-card bg-white rounded-xl shadow-md overflow-hidden dark:bg-gray-800">
+                    <img src="https://placeholder.pics/svg/300x200/DEDEDE/555555/فردوسی" alt="Ferdowsi" class="w-full h-48 object-cover">
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold mb-2">ابوالقاسم فردوسی</h3>
+                        <p class="text-gray-600 dark:text-gray-300 mb-4">حماسه‌سرای بزرگ قرن ۴ هجری</p>
+                        <div class="relative h-28 overflow-hidden">
+                            <div class="poem-content opacity-0 transition-opacity duration-300 absolute inset-0 bg-white bg-opacity-90 dark:bg-gray-900 dark:bg-opacity-90 p-4 rounded">
+                                <p class="persian-text text-sm text-gray-700 dark:text-gray-200">
+                                    بسی رنج بردم در این سال سی
+                                    عجم زنده کردم بدین پارسی
+                                </p>
+                            </div>
+                            <img src="https://placeholder.pics/svg/100x100/8B5A2B/FFFFFF/ف" class="w-16 h-16 rounded-full mx-auto mt-2">
+                        </div>
+                        <a href="#" class="inline-block mt-4 text-persian-brown dark:text-persian-orange hover:underline">مشاهده اشعار →</a>
+                    </div>
+                </div>
+                
+                <!-- Poet 4 - Contemporary -->
+                <div class="poem-card bg-white rounded-xl shadow-md overflow-hidden dark:bg-gray-800">
+                    <img src="https://placeholder.pics/svg/300x200/DEDEDE/555555/شاعر-معاصر" alt="Contemporary Poet" class="w-full h-48 object-cover">
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold mb-2">شاعران معاصر</h3>
+                        <p class="text-gray-600 dark:text-gray-300 mb-4">صدای شعر نو فارسی</p>
+                        <div class="relative h-28 overflow-hidden">
+                            <div class="poem-content opacity-0 transition-opacity duration-300 absolute inset-0 bg-white bg-opacity-90 dark:bg-gray-900 dark:bg-opacity-90 p-4 rounded">
+                                <p class="persian-text text-sm text-gray-700 dark:text-gray-200">
+                                    از این کوته اندیشه نیندیش
+                                    که عشق است و دیگر هیچ نیست
+                                </p>
+                            </div>
+                            <img src="https://placeholder.pics/svg/100x100/8B5A2B/FFFFFF/ش" class="w-16 h-16 rounded-full mx-auto mt-2">
+                        </div>
+                        <a href="#" class="inline-block mt-4 text-persian-brown dark:text-persian-orange hover:underline">مشاهده اشعار →</a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="text-center mt-12">
+                <a href="#" class="inline-flex items-center text-persian-brown dark:text-persian-orange text-lg hover:underline">
+                    مشاهده همه شاعران
+                    <i class="fas fa-arrow-left mr-2"></i>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section class="py-16 bg-persian-cream dark:bg-gray-800">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl font-bold mb-4">ویژگی‌ها و نوآوری‌های کلیدی</h2>
+                <p class="text-lg text-gray-600 max-w-2xl mx-auto dark:text-gray-300">تجربه‌ای بی‌نظیر از شعر فارسی</p>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12">
+                <!-- Depth -->
+                <div class="text-center p-6 rounded-lg">
+                    <div class="feature-icon mx-auto">
+                        <i class="fas fa-database text-3xl text-persian-brown dark:text-persian-orange"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3">محتوای بی‌نظیر</h3>
+                    <p class="text-gray-600 dark:text-gray-300">
+                        فهرست کامل شاعران از کهن تا معاصر با متون اصلی و ترجمه‌های چندزبانه (انگلیسی، فرانسوی و ...) همراه با تفسیرهای هوشمند وزن عروضی و صنایع ادبی
+                    </p>
+                </div>
+                
+                <!-- UX -->
+                <div class="text-center p-6 rounded-lg">
+                    <div class="feature-icon mx-auto">
+                        <i class="fas fa-paint-brush text-3xl text-persian-brown dark:text-persian-orange"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3">تجربه کاربری نسل بعد</h3>
+                    <p class="text-gray-600 dark:text-gray-300">
+                        طراحی زیبای خوشنویسی ایرانی، تایم‌لاین تعاملی 1300 سال شعر فارسی و ادغام واقعیت افزوده برای نمایش اشعار در محیط اطراف
+                    </p>
+                </div>
+                
+                <!-- AI -->
+                <div class="text-center p-6 rounded-lg">
+                    <div class="feature-icon mx-auto">
+                        <i class="fas fa-robot text-3xl text-persian-brown dark:text-persian-orange"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3">هوش مصنوعی پیشرفته</h3>
+                    <p class="text-gray-600 dark:text-gray-300">
+                        جستجوی هوشمند بر اساس حس و موضوع، تشخیص صوت به شعر و بازی‌های تقابلی مانند "حدس بزن شاعر" و ساخت مشارکتی شعر
+                    </p>
+                </div>
+                
+                <!-- Community -->
+                <div class="text-center p-6 rounded-lg">
+                    <div class="feature-icon mx-auto">
+                        <i class="fas fa-users text-3xl text-persian-brown dark:text-persian-orange"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3">جامعه حرفه‌ای</h3>
+                    <p class="text-gray-600 dark:text-gray-300">
+                        رویدادهای زنده شعرخوانی با اساتید، ترجمه‌های مشارکتی و معرفی شاعران نوظهور از طریق مسابقات و بخش ویژه
+                    </p>
+                </div>
+                
+                <!-- Tech -->
+                <div class="text-center p-6 rounded-lg">
+                    <div class="feature-icon mx-auto">
+                        <i class="fas fa-cogs text-3xl text-persian-brown dark:text-persian-orange"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3">فناوری‌های پیشرفته</h3>
+                    <p class="text-gray-600 dark:text-gray-300">
+                        رابط صوتی هوشمند، تحلیل معنایی اشعار، و سیستم توصیه‌گر اشعار بر اساس سلیقه شخصی
+                    </p>
+                </div>
+                
+                <!-- Monetization -->
+                <div class="text-center p-6 rounded-lg">
+                    <div class="feature-icon mx-auto">
+                        <i class="fas fa-gem text-3xl text-persian-brown dark:text-persian-orange"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3">عضویت ویژه</h3>
+                    <p class="text-gray-600 dark:text-gray-300">
+                        دسترسی به نسخ خطی نادر، نقدهای تخصصی، رویدادهای اختصاصی و همکاری با دانشگاه‌ها و نهادهای فرهنگی
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Timeline Section -->
+    <section class="py-16 relative">
+        <div class="absolute inset-0 bg-persian-orange bg-opacity-5 dark:bg-opacity-10 -z-10"></div>
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl font-bold mb-4">روند تاریخی شعر فارسی</h2>
+                <p class="text-lg text-gray-600 max-w-2xl mx-auto dark:text-gray-300">سیر تحول شعر فارسی در طول ۱۳ قرن</p>
+            </div>
+            
+            <div class="relative">
+                <!-- Timeline line -->
+                <div class="hidden md:block absolute left-1/2 top-0 bottom-0 w-1 bg-persian-brown dark:bg-persian-orange -ml-px"></div>
+                
+                <!-- Timeline items -->
+                <div class="space-y-12">
+                    <!-- Item 1 -->
+                    <div class="relative timeline-item">
+                        <div class="md:flex justify-between items-center">
+                            <div class="md:w-1/2 md:text-right mb-6 md:mb-0 md:pr-12">
+                                <h3 class="text-xl font-bold mb-2">دوره ابتدایی</h3>
+                                <p class="text-gray-600 dark:text-gray-300">
+                                    آغاز شکل‌گیری شعر فارسی در سده ۴ هجری با آثار رودکی و شهید بلخی
+                                </p>
+                            </div>
+                            <div class="md:w-1/2 md:pl-12">
+                                <div class="bg-white dark:bg-gray-800 p-6 rounded-lg shadow-md">
+                                    <h4 class="font-bold mb-2">رودکی (متوفی ۳۲۹ ه.ق)</h4>
+                                    <p class="persian-text text-gray-700 dark:text-gray-300 mb-4">
+                                        مثنوی کلیله و دمنه اولین نمونه‌های شعر فارسی
+                                    </p>
+                                    <div class="flex flex-wrap gap-2">
+                                        <span class="bg-persian-cream dark:bg-gray-700 px-3 py-1 rounded-full text-sm">حماسی</span>
+                                        <span class="bg-persian-cream dark:bg-gray-700 px-3 py-1 rounded-full text-sm">تعليمی</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Item 2 -->
+                    <div class="relative timeline-item">
+                        <div class="md:flex justify-between items-center">
+                            <div class="md:w-1/2 md:text-right mb-6 md:mb-0 md:pr-12 order-last">
+                                <div class="bg-white dark:bg-gray-800 p-6 rounded-lg shadow-md">
+                                    <h4 class="font-bold mb-2">فردوسی (۳۲۹-۴۱۱ ه.ق)</h4>
+                                    <p class="persian-text text-gray-700 dark:text-gray-300 mb-4">
+                                        که از پهلوانان و از تخم گودرز بود / بر آن نامور تخت شاهي نژاد
+                                    </p>
+                                    <div class="flex flex-wrap gap-2">
+                                        <span class="bg-persian-cream dark:bg-gray-700 px-3 py-1 rounded-full text-sm">حماسی</span>
+                                        <span class="bg-persian-cream dark:bg-gray-700 px-3 py-1 rounded-full text-sm">ملی</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="md:w-1/2 md:pl-12">
+                                <h3 class="text-xl font-bold mb-2">عصر حماسی</h3>
+                                <p class="text-gray-600 dark:text-gray-300">
+                                    قرن ۴ و ۵ هجری با شاهنامه فردوسی و آثار حماسی دیگر
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Item 3 -->
+                    <div class="relative timeline-item">
+                        <div class="md:flex justify-between items-center">
+                            <div class="md:w-1/2 md:text-right mb-6 md:mb-0 md:pr-12">
+                                <h3 class="text-xl font-bold mb-2">عصر غزل</h3>
+                                <p class="text-gray-600 dark:text-gray-300">
+                                    قرن ۶ تا ۸ هجری با ظهور بزرگانی چون سعدی، حافظ و مولوی
+                                </p>
+                            </div>
+                            <div class="md:w-1/2 md:pl-12">
+                                <div class="bg-white dark:bg-gray-800 p-6 rounded-lg shadow-md">
+                                    <h4 class="font-bold mb-2">حافظ (۷۲۶-۷۹۲ ه.ق)</h4>
+                                    <p class="persian-text text-gray-700 dark:text-gray-300 mb-4">
+                                        الا یا ایها الساقی ادر کأسا و ناولها / که عشق آسان نمود اول ولی افتاد مشکل‌ها
+                                    </p>
+                                    <div class="flex flex-wrap gap-2">
+                                        <span class="bg-persian-cream dark:bg-gray-700 px-3 py-1 rounded-full text-sm">غنایی</span>
+                                        <span class="bg-persian-cream dark:bg-gray-700 px-3 py-1 rounded-full text-sm">عرفانی</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Item 4 -->
+                    <div class="relative timeline-item">
+                        <div class="md:flex justify-between items-center">
+                            <div class="md:w-1/2 md:text-right mb-6 md:mb-0 md:pr-12 order-last">
+                                <div class="bg-white dark:bg-gray-800 p-6 rounded-lg shadow-md">
+                                    <h4 class="font-bold mb-2">نیما یوشیج (۱۲۷۶-۱۳۳۸ ه.ش)</h4>
+                                    <p class="persian-text text-gray-700 dark:text-gray-300 mb-4">
+                                        مهتاب روشن، شب بی‌سر و پا / روی پلکان دل ما می‌رقصد
+                                    </p>
+                                    <div class="flex flex-wrap gap-2">
+                                        <span class="bg-persian-cream dark:bg-gray-700 px-3 py-1 rounded-full text-sm">نو</span>
+                                        <span class="bg-persian-cream dark:bg-gray-700 px-3 py-1 rounded-full text-sm">سپيد</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="md:w-1/2 md:pl-12">
+                                <h3 class="text-xl font-bold mb-2">شعر نو</h3>
+                                <p class="text-gray-600 dark:text-gray-300">
+                                    از قرن ۱۳ هجری شمسی با نیما یوشیج و شاعران معاصر
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- MVP Call to Action -->
+    <section id="develop" class="py-20 bg-gray-100 dark:bg-gray-800">
+        <div class="container mx-auto px-4 text-center">
+            <h2 class="text-3xl font-bold mb-6">به تیم توسعه فارسی ورلد بپیوندید</h2>
+            <p class="text-xl mb-8 max-w-3xl mx-auto">ما به دنبال توسعه‌دهندگان، طراحان و محققان علاقه‌مند به ادبیات فارسی هستیم</p>
+            
+            <div class="grid md:grid-cols-3 gap-8 mb-12">
+                <div class="bg-white dark:bg-gray-700 p-6 rounded-lg shadow">
+                    <h3 class="text-xl font-bold mb-4">فرانت‌اند</h3>
+                    <ul class="text-left space-y-2">
+                        <li><i class="fas fa-check text-green-500 mr-2"></i> React/Next.js</li>
+                        <li><i class="fas fa-check text-green-500 mr-2"></i> Tailwind CSS</li>
+                        <li><i class="fas fa-check text-green-500 mr-2"></i> UI/UX</li>
+                    </ul>
+                </div>
+                <div class="bg-white dark:bg-gray-700 p-6 rounded-lg shadow">
+                    <h3 class="text-xl font-bold mb-4">بک‌اند</h3>
+                    <ul class="text-left space-y-2">
+                        <li><i class="fas fa-check text-green-500 mr-2"></i> Node.js/Python</li>
+                        <li><i class="fas fa-check text-green-500 mr-2"></i> Database</li>
+                        <li><i class="fas fa-check text-green-500 mr-2"></i> API Design</li>
+                    </ul>
+                </div>
+                <div class="bg-white dark:bg-gray-700 p-6 rounded-lg shadow">
+                    <h3 class="text-xl font-bold mb-4">محتوایی</h3>
+                    <ul class="text-left space-y-2">
+                        <li><i class="fas fa-check text-green-500 mr-2"></i> ویراستاری</li>
+                        <li><i class="fas fa-check text-green-500 mr-2"></i> پژوهش ادبی</li>
+                        <li><i class="fas fa-check text-green-500 mr-2"></i> ترجمه</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <a href="mailto:join@farsi-world.ir" class="inline-block bg-persian-brown text-white px-8 py-3 rounded-lg font-medium hover:bg-opacity-90 transition dark:bg-persian-orange">
+                ارسال رزومه و پیشنهاد همکاری
+            </a>
+        </div>
+    </section>
+        <div class="container mx-auto px-4 text-center">
+            <h2 class="text-3xl md:text-4xl font-bold mb-6">به جامعه شعر فارسی بپیوندید</h2>
+            <p class="text-xl mb-8 max-w-3xl mx-auto">به بیش از ۵۰۰ هزار عضو فارسی‌ورلد بپیوندید و از خدمات ویژه ما بهره‌مند شوید</p>
+            <div class="flex flex-col sm:flex-row justify-center gap-4">
+                <a href="#" class="bg-white text-persian-brown px-8 py-3 rounded-lg font-medium hover:bg-opacity-90 transition">عضویت رایگان</a>
+                <a href="#" class="border border-white text-white px-8 py-3 rounded-lg hover:bg-white hover:text-persian-brown transition">اطلاعات بیشتر</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-800 text-white py-12">
+        <div class="container mx-auto px-4">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-12">
+                <div>
+                    <h3 class="text-xl font-bold mb-4">فارسی ورلد</h3>
+                    <p class="mb-4 text-gray-300">
+                        بزرگترین مرجع آنلاین شعر فارسی با امکانات هوشمند و تعاملی
+                    </p>
+                    <div class="flex space-x-4 space-x-reverse">
+                        <a href="#" class="w-10 h-10 rounded-full bg-gray-700 flex items-center justify-center hover:bg-gray-600 transition">
+                            <i class="fab fa-telegram"></i>
+                        </a>
+                        <a href="#" class="w-10 h-10 rounded-full bg-gray-700 flex items-center justify-center hover:bg-gray-600 transition">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                        <a href="#" class="w-10 h-10 rounded-full bg-gray-700 flex items-center justify-center hover:bg-gray-600 transition">
+                            <i class="fab fa-twitter"></i>
+                        </a>
+                        <a href="#" class="w-10 h-10 rounded-full bg-gray-700 flex items-center justify-center hover:bg-gray-600 transition">
+                            <i class="fab fa-youtube"></i>
+                        </a>
+                    </div>
+                </div>
+                
+                <div>
+                    <h4 class="font-bold mb-4">لینک‌های مفید</h4>
+                    <ul class="space-y-2">
+                        <li><a href="#" class="text-gray-300 hover:text-white transition">صفحه اصلی</a></li>
+                        <li><a href="#" class="text-gray-300 hover:text-white transition">درباره ما</a></li>
+                        <li><a href="#" class="text-gray-300 hover:text-white transition">تماس با ما</a></li>
+                        <li><a href="#" class="text-gray-300 hover:text-white transition">سوالات متداول</a></li>
+                        <li><a href="#" class="text-gray-300 hover:text-white transition">قوانین و مقررات</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h4 class="font-bold mb-4">شاعران</h4>
+                    <ul class="space-y-2">
+                        <li><a href="#" class="text-gray-300 hover:text-white transition">شاعران کلاسیک</a></li>
+                        <li><a href="#" class="text-gray-300 hover:text-white transition">شاعران معاصر</a></li>
+                        <li><a href="#" class="text-gray-300 hover:text-white transition">شاعران زن</a></li>
+                        <li><a href="#" class="text-gray-300 hover:text-white transition">شاعران مهاجر</a></li>
+                        <li><a href="#" class="text-gray-300 hover:text-white transition">جستجوی پیشرفته</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h4 class="font-bold mb-4">تماس با ما</h4>
+                    <ul class="space-y-2">
+                        <li class="flex items-center">
+                            <i class="fas fa-envelope mr-2"></i>
+                            <span>info@farsi-world.ir</span>
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fas fa-phone mr-2"></i>
+                            <span>+۹۸ ۲۱ ۱۲۳۴ ۵۶۷۸</span>
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fas fa-map-marker-alt mr-2"></i>
+                            <span>تهران، خیابان آزادی، دانشگاه تهران</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="border-t border-gray-700 mt-12 pt-8 text-center text-gray-400">
+                <p>© ۲۰۲۳ فارسی ورلد. تمامی حقوق محفوظ است.</p>
+            </div>
+        </div>
+    </footer>
+<p style="border-radius: 8px; text-align: center; font-size: 12px; color: #fff; margin-top: 16px;position: fixed; left: 8px; bottom: 8px; z-index: 10; background: rgba(0, 0, 0, 0.8); padding: 4px 8px;">Made with <img src="https://enzostvs-deepsite.hf.space/logo.svg" alt="DeepSite Logo" style="width: 16px; height: 16px; vertical-align: middle;display:inline-block;margin-right:3px;filter:brightness(0) invert(1);"><a href="https://enzostvs-deepsite.hf.space" style="color: #fff;text-decoration: underline;" target="_blank" >DeepSite</a> - 🧬 <a href="https://enzostvs-deepsite.hf.space?remix=CabirPoya/farsi-world" style="color: #fff;text-decoration: underline;" target="_blank" >Remix</a></p></body>
+</html>
